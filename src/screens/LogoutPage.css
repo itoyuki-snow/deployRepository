@@ -1,0 +1,33 @@
+.logout-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #eaf9ff;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+}
+
+.logout-message {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #3d3d3d;
+}
+
+.logout-spinner {
+  border: 6px solid #e0dce5;
+  border-top: 6px solid #265c9b;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

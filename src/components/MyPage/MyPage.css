@@ -1,0 +1,44 @@
+.mypage-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 150px 50px 50px 50px;
+  background: #eaf9ff;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  flex-direction: column;
+}
+
+.page-title {
+  color: #3d3d3d;
+  text-align: center;
+}
+
+.mypage-card {
+  padding: 30px;
+  border-radius: 1rem;
+  width: 360px;
+}
+
+.info {
+  padding-bottom: 20px;
+  color: #3d3d3d;
+}
+
+.info-block {
+  margin-bottom: 1rem;
+}
+
+.info-block label {
+  font-weight: bold;
+  color: #0086cc;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.info-block p {
+  font-size: 0.95rem;
+  color: #3d3d3d;
+  background-color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 6px;
+}

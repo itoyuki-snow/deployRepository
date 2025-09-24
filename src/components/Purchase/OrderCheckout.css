@@ -1,0 +1,68 @@
+.checkout-container {
+  max-width: 600px;
+  margin: auto;
+  background: #eaf9ff;
+  padding: 150px 30px 30px 30px;
+  border-radius: 8px;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  color: #333;
+}
+
+h2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background: #317abf;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mypage-card {
+  padding: 30px;
+  border-radius: 1rem;
+  width: 360px;
+}
+
+.info {
+  padding-bottom: 20px;
+  color: #3d3d3d;
+}
+
+.info-block {
+  margin-bottom: 1rem;
+}
+
+.info-block label {
+  font-weight: bold;
+  color: #0086cc;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.info-block p {
+  font-size: 0.95rem;
+  color: #3d3d3d;
+  background-color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 6px;
+}

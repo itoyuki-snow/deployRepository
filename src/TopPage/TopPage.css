@@ -1,0 +1,142 @@
+.top-page {
+  background: #eaf9ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+}
+
+main {
+  margin: 50px;
+  padding-top: 60px;
+}
+
+.intro {
+  padding: 2.5rem;
+  border-radius: 16px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  font-family: "Hannari", serif;
+  font-size: 15px;
+  color: #3d3d3d;
+}
+
+.intro p {
+  margin: 1.2rem 0;
+  line-height: 1.8;
+}
+
+.visual_banner img {
+  width: 100vw;
+  max-width: 600px;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+.origin p {
+  padding: 0px;
+}
+
+.new-product {
+  font-size: 18px;
+  font-weight: 500;
+  color: #555;
+  margin: 2rem;
+  letter-spacing: 1px;
+}
+
+.gift-search {
+  white-space: pre-line;
+  font-size: 18px;
+  line-height: 2;
+  color: #555;
+  margin: 2rem;
+}
+
+footer {
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 50px;
+  margin: 50px;
+  background-color: #cae7ff;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+nav {
+  color: #0086cc;
+  text-decoration: none;
+  list-style: none;
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+button {
+  display: block;
+  margin: 1rem auto;
+  font-size: 16px;
+  padding: 0.7rem 1.5rem;
+  background-color: #0086cc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .top-page {
+    padding: 1rem;
+  }
+
+  .intro {
+    padding: 1.5rem;
+    font-size: 14px;
+  }
+
+  .intro p {
+    margin: 1rem 0;
+    line-height: 1.6;
+  }
+
+  .origin p {
+    font-size: 14px;
+  }
+
+  .new-product,
+  .gift-search {
+    font-size: 16px;
+    padding: 1rem;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+  }
+
+  footer {
+    padding: 30px;
+    margin: 30px;
+    font-size: 14px;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li {
+    padding-bottom: 8px;
+  }
+}

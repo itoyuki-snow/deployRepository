@@ -1,0 +1,61 @@
+.order-complete-container {
+  text-align: center;
+  padding: 150px 20px 60px 20px;
+  background-color: #eaf9ff;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+}
+
+.checkmark-circle {
+  font-size: 48px;
+  color: #317abf;
+  border: 3px solid #317abf;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.thank-you {
+  font-size: 24px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.message {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.back-button {
+  background-color: #317abf;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color: #ff5eb1;
+}
+.confirm-button:hover {
+  background-color: #fc2996;
+}
+.confirm-button:active {
+  background-color: #fc2996;
+}
+.confirm-button:focus {
+  outline: none;
+}

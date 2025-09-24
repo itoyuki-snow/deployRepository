@@ -1,0 +1,40 @@
+.header {
+  background-color: #cae7ff;
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+}
+
+.header-left {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 24px;
+  color: #0086cc;
+  margin: 0;
+  font-weight: bold;
+}
+
+.brand-subtitle {
+  font-size: 14px;
+  color: #0086cc;
+  margin: 0;
+}
+
+.header-right i {
+  font-size: 20px;
+  color: #0086cc;
+  margin-left: 16px;
+  cursor: pointer;
+}

@@ -1,0 +1,99 @@
+.header {
+  width: 100%;
+  box-sizing: border-box;
+  top: 0;
+  z-index: 200;
+  position: fixed;
+}
+
+.header-fixed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 24px 10px 24px;
+  height: 80px;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  background-color: #cae7ff;
+}
+
+.header-left {
+  display: inline-block;
+  align-items: center;
+  flex: 1;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.menu-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-button img {
+  margin-top: 10px;
+  width: 32px;
+  cursor: pointer;
+}
+
+.icon-hamburger {
+  font-size: 40px;
+  margin-left: 3px;
+  cursor: pointer;
+  color: #0086cc;
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  background-color: #cae7ff;
+  top: 80px;
+  padding: 16px;
+  width: 200px;
+  right: 0;
+  border-radius: 8px;
+}
+
+.menu.open {
+  display: block;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 16px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 8px 0;
+  font-size: 16px;
+  color: #0086cc;
+  border-bottom: 1px solid #cce0f5;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}

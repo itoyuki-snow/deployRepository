@@ -1,0 +1,99 @@
+.brand-intro {
+  font-family: "Hannari", serif;
+  background: #eaf9ff;
+  color: #3d3d3d;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.visual_banner2 img {
+  margin-top: 120px;
+  width: 360px;
+  height: auto;
+  padding: 50px 30px;
+}
+
+.description1,
+.description2 {
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  text-align: center;
+  margin: 24px 0;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+  opacity: 0.9;
+}
+
+.back-button-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: #0086cc;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.brand-intro a.back-button {
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .brand-intro {
+    padding: 1rem;
+    align-items: stretch;
+  }
+
+  .main-content {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  .visual_banner2 img {
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 80px;
+  }
+
+  .description1,
+  .description2 {
+    padding: 1.5rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .back-button-container {
+    margin-top: 1.5rem;
+  }
+
+  .back-button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+    text-align: center;
+  }
+}

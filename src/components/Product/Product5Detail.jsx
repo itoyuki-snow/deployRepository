@@ -44,7 +44,7 @@ const Product5Detail = () => {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "http://localhost:8000/purchase/cart",
+        "https://portfolio-backend-nm0n.onrender.com/purchase/cart",
         {
           itemId: product.id,
           quantity: 1,
@@ -56,6 +56,7 @@ const Product5Detail = () => {
         }
       );
       alert("カートに追加されました!");
+      handleAddToCart(product);
     } catch (error) {
       console.error("追加失敗:", error);
       alert("カート追加に失敗しました");
@@ -77,7 +78,7 @@ const Product5Detail = () => {
             <h2>{product.name}</h2>
             <p className="description">{product.description}</p>
             <p className="price">¥{product.price}</p>
-            <button onClick={handleClick}>カートに入れる</button>
+            <button onClick={() => handleClick(product)}>カートに入れる</button>
             <div className="story">
               <p>
                 まるで、雨に濡れた本物の紫陽花が耳元で揺れているような、

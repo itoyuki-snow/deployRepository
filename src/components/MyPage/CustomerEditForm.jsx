@@ -42,9 +42,13 @@ const CustomerEditForm = ({ customer }) => {
     }
 
     try {
-      await axios.put("http://localhost:8000/auth/me", formData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.put(
+        "https://portfolio-backend-nm0n.onrender.com/auth/me",
+        formData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
       alert("変更を登録しました");
     } catch (error) {

@@ -28,7 +28,7 @@ const Product1Detail = ({ onAddToCart }) => {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "http://localhost:8000/purchase/cart",
+        "https://portfolio-backend-nm0n.onrender.com/purchase/cart",
         {
           itemId: product.id,
           quantity: 1,

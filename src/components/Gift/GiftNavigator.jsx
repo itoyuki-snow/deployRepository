@@ -29,9 +29,12 @@ function GiftNavigator() {
     }
 
     try {
-      const res = await axios.post("http://localhost:8000/gift/recommend", {
-        tags: selectedTags,
-      });
+      const res = await axios.post(
+        "https://portfolio-backend-nm0n.onrender.com/gift/recommend",
+        {
+          tags: selectedTags,
+        }
+      );
       setGifts(Array.isArray(res.data) ? res.data : [res.data]);
     } catch (error) {
       console.error(error);

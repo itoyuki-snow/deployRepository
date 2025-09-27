@@ -33,7 +33,7 @@ const Product3Detail = () => {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "http://localhost:8000/purchase/cart",
+        "https://portfolio-backend-nm0n.onrender.com/purchase/cart",
         {
           itemId: product.id,
           quantity: 1,
@@ -45,6 +45,7 @@ const Product3Detail = () => {
         }
       );
       alert("カートに追加されました!");
+      handleAddToCart(product);
     } catch (error) {
       console.error("追加失敗:", error);
       alert("カート追加に失敗しました");
@@ -66,7 +67,7 @@ const Product3Detail = () => {
             <h2>{product.name}</h2>
             <p className="description">{product.description}</p>
             <p className="price">¥{product.price}</p>
-            <button onClick={handleClick}>カートに入れる</button>
+            <button onClick={() => handleClick(product)}>カートに入れる</button>
             <div className="story">
               <p>
                 とろけるベビーピンクカラーのハートビジューをメインに、

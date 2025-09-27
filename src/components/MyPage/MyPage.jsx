@@ -10,7 +10,7 @@ const MyPage = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:8000/auth/me", {
+      .get("https://portfolio-backend-nm0n.onrender.com/auth/me", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setUser(res.data))

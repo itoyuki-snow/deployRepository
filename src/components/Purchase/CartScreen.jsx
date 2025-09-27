@@ -9,7 +9,7 @@ function CartScreen({ token }) {
     if (!token) return;
 
     axios
-      .get("http://localhost:8000/cart", {
+      .get("https://portfolio-backend-nm0n.onrender.com/cart", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

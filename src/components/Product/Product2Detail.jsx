@@ -28,7 +28,7 @@ const Product2Detail = ({ onAddToCart }) => {
     const token = localStorage.getItem("token");
     try {
       await axios.post(
-        "http://localhost:8000/purchase/cart",
+        "https://portfolio-backend-nm0n.onrender.com/purchase/cart",
         {
           itemId: product.id,
           quantity: 1,
@@ -41,7 +41,7 @@ const Product2Detail = ({ onAddToCart }) => {
       );
       alert(`${product.name} がカートに追加されました!`);
       if (onAddToCart) {
-        onAddToCart(product);
+        handleAddToCart(product);
       }
     } catch (error) {
       console.error("追加失敗:", error);
@@ -64,7 +64,7 @@ const Product2Detail = ({ onAddToCart }) => {
             <h2>{product.name}</h2>
             <p className="description">{product.description}</p>
             <p className="price">¥{product.price}</p>
-            <button onClick={handleClick}>カートに入れる</button>
+            <button onClick={() => handleClick(product)}>カートに入れる</button>
             <div className="story">
               <p>
                 とろけるラベンダーカラーのハートビジューをメインに、

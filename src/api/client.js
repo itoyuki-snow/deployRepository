@@ -2,7 +2,8 @@ import axios from "axios";
 
 // ベースURLの設定（環境変数を優先して使用）
 const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:8000";
+  process.env.REACT_APP_API_BASE_URL ||
+  "https://portfolio-backend-nm0n.onrender.com/";
 
 // Axiosインスタンスを作成
 const apiClient = axios.create({

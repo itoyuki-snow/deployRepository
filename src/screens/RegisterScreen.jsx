@@ -93,6 +93,8 @@ function RegisterScreen() {
 
     setErrors(newErrors); // エラーを更新
 
+    console.log("送信データ:", formData);
+
     try {
       const formattedData = {
         ...formData,

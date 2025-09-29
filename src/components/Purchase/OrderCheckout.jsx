@@ -26,15 +26,12 @@ export default function OrderCheckout() {
 
   const onRemoveItem = async (id) => {
     try {
-      await axios.delete(
-        `https://portfolio-backend-nm0n.onrender.com/purchase/cart/${id}`,
-        {
-          withCredentials: true,
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      await apiClient.delete(`/purchase/cart/${id}`, {
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
       setCart((prevCart) => prevCart.filter((item) => item.id !== id));
     } catch (err) {
       console.error("削除エラー:", err);
@@ -42,8 +39,8 @@ export default function OrderCheckout() {
   };
 
   useEffect(() => {
-    axios
-      .get("https://portfolio-backend-nm0n.onrender.com/auth/me", {
+    apiClient
+      .get("/auth/me", {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -54,8 +51,8 @@ export default function OrderCheckout() {
         setAddress(res.data.address);
       });
 
-    axios
-      .get("https://portfolio-backend-nm0n.onrender.com/purchase/cart", {
+    apiClient
+      .get("/purchase/cart", {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

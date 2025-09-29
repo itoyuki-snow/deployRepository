@@ -142,6 +142,7 @@ function RegisterScreen() {
         <Label>＊生年月日</Label>
         <Input
           name="birthdate"
+          type="date"
           value={formData.birthdate}
           onChange={handleChange}
           placeholder="年/月/日"

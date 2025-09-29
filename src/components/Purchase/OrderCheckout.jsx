@@ -88,7 +88,7 @@ export default function OrderCheckout() {
   const handlePurchase = async () => {
     try {
       await axios.post(
-        "http://localhost:8000/purchase/purchase",
+        "https://portfolio-backend-nm0n.onrender.com/purchase/purchase",
         {
           payment_method: paymentMethod,
           address: address,

@@ -3,6 +3,7 @@ import axios from "axios";
 import "./OrderCheckout.css";
 import Header from "../Header/Header";
 import { useNavigate } from "react-router-dom";
+import apiClient from "../../api/client";
 
 export default function OrderCheckout() {
   const [user, setUser] = useState({});
@@ -87,12 +88,13 @@ export default function OrderCheckout() {
 
   const handlePurchase = async () => {
     try {
-      await axios.post(
-        "https://portfolio-backend-nm0n.onrender.com/purchase/purchase",
+      await apiClient.post(
+        "/purchase/purchase",
         {
           payment_method: paymentMethod,
           address: address,
         },
+
         {
           withCredentials: true,
           headers: {

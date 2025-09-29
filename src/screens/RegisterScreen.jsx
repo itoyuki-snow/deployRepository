@@ -69,19 +69,20 @@ function RegisterScreen() {
 
   // 入力が変更されたときに実行される関数
   const handleChange = (e) => {
-    const { name, value } = e.target; // フィールド名とその値を取得
-    setFormData({
-      ...formData, // 現在のフォームデータを保持
-      [name]: value, // フィールド名に対応する値を更新
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   // フォームが送信されたときに実行される関数
   const handleSubmit = async (e) => {
-    e.preventDefault(); // ページのリロードを防ぐ
+    e.preventDefault();
     console.log("送信開始");
 
     // 入力チェックを行い、エラーを記録
+
     const newErrors = {};
     if (!formData.username) newErrors.username = "氏名を入力してください。";
     if (!formData.birthdate)
@@ -91,26 +92,25 @@ function RegisterScreen() {
     if (!formData.password)
       newErrors.password = "パスワードを入力してください。";
 
-    setErrors(newErrors); // エラーを更新
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
-    console.log("送信データ:", formData);
+    const formattedData = {
+      ...formData,
+      birthdate: new Date(formData.birthdate).toISOString().slice(0, 10),
+    };
+
+    console.log("送信データ:", formattedData);
 
     try {
-      const formattedData = {
-        ...formData,
-        birthdate:
-          typeof formData.birthdate === "string"
-            ? formData.birthdate.replace(/\//g, "-")
-            : "",
-      };
-
-      await apiClient.post("/auth/signup", formattedData); // バックエンドにアカウント作成リクエストを送信
+      await apiClient.post("/auth/signup", formattedData);
       alert("ユーザー登録が完了しました!");
-      navigate("/login"); // ログイン画面に遷移
+      navigate("/login");
     } catch (err) {
-      // エラーメッセージを取得
-      if (err.response && err.response.data && err.response.data.detail) {
-        setErrors(err.response.data.detail); // バックエンドからのエラーを表示
+      if (err.response?.data?.detail) {
+        setErrors({ general: err.response.data.detail });
       } else {
         setErrors({
           general: "アカウント作成に失敗しました。入力内容を確認してください。",

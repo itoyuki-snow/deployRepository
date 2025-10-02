@@ -55,7 +55,7 @@ const Product1Detail = ({ onAddToCart }) => {
       <div className="detail-container">
         <div className="product-section">
           <img
-            src={`${process.env.PUBLIC_URL}${product.image_url}`}
+            src={`${process.env.PUBLIC_URL}/images/product1.jpg`}
             alt={product.name}
           />
           <div className="text-section">

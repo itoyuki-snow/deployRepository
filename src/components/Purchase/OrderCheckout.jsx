@@ -39,7 +39,7 @@ export default function OrderCheckout() {
   };
 
   useEffect(() => {
-    console.log("API BASE:", import.meta.env.VITE_API_BASE_URL);
+    console.log("API BASE:", process.env.REACT_APP_API_BASE_URL);
 
     apiClient
       .get("/auth/me", {

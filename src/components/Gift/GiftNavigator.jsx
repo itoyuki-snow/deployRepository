@@ -14,8 +14,10 @@ function GiftNavigator() {
   });
   const [gifts, setGifts] = useState([]);
 
-  const publicUrl = process.env.PUBLIC_URL || "/deployRepository";
-  console.log("product_url:", gift.product_url);
+  const baseUrl =
+    process.env.PUBLIC_URL && process.env.PUBLIC_URL !== "/"
+      ? process.env.PUBLIC_URL
+      : "https://itoyuki-snow.github.io/deployRepository";
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -135,7 +137,7 @@ function GiftNavigator() {
               <p>￥{gift.price}</p>
               <img
                 className="item-image"
-                src={new URL(gift.image_url, publicUrl).toString()}
+                src={new URL(gift.image_url, baseUrl).toString()}
                 alt={gift.name}
               />
 

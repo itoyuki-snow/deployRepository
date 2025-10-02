@@ -39,7 +39,7 @@ const CartPage = () => {
                   <h2>{item.name}</h2>
                   <img
                     className="item-image"
-                    src={item.image_url}
+                    src={`${process.env.PUBLIC_URL}${item.image_url}`}
                     alt={item.name}
                   />
                   <p>{item.description}</p>

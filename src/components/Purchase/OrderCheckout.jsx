@@ -159,6 +159,11 @@ export default function OrderCheckout() {
               {cart.map((item, index) => (
                 <div className="cart-item" key={`${item.id}-${index}`}>
                   <h2>{item.name}</h2>
+                  <img
+                    className="item-image"
+                    src={`${process.env.PUBLIC_URL}${item.image_url}`}
+                    alt={item.name}
+                  />
                   <p>¥{item.price.toLocaleString()}</p>
 
                   <div className="quantity-controls">

@@ -130,7 +130,11 @@ function GiftNavigator() {
               <h4>『{gift.name}』</h4>
               <p>{gift.description}</p>
               <p>￥{gift.price}</p>
-              <img src={gift.image_url} alt={gift.name} />
+              <img
+                className="item-image"
+                src={`${process.env.PUBLIC_URL}${gift.image_url}`}
+                alt={gift.name}
+              />
               <a
                 href={gift.product_url}
                 target="_blank"

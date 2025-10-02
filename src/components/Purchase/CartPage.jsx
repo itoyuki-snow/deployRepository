@@ -37,14 +37,16 @@ const CartPage = () => {
               {cartItems.map((item, index) => (
                 <div className="cart-item" key={item.id}>
                   <h2>{item.name}</h2>
+
                   <img
                     className="item-image"
-                    src={`${process.env.PUBLIC_URL}/${gift.image_url.replace(
-                      /^\//,
-                      ""
-                    )}`}
+                    src={new URL(
+                      item.image_url,
+                      process.env.PUBLIC_URL
+                    ).toString()}
                     alt={item.name}
                   />
+
                   <p>{item.description}</p>
                   <p>¥{item.price.toLocaleString()} (税込)</p>
 

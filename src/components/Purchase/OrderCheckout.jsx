@@ -161,12 +161,13 @@ export default function OrderCheckout() {
                   <h2>{item.name}</h2>
                   <img
                     className="item-image"
-                    src={`${process.env.PUBLIC_URL}/${gift.image_url.replace(
-                      /^\//,
-                      ""
-                    )}`}
+                    src={new URL(
+                      item.image_url,
+                      process.env.PUBLIC_URL
+                    ).toString()}
                     alt={item.name}
                   />
+
                   <p>¥{item.price.toLocaleString()}</p>
 
                   <div className="quantity-controls">

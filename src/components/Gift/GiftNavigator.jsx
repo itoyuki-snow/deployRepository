@@ -15,6 +15,7 @@ function GiftNavigator() {
   const [gifts, setGifts] = useState([]);
 
   const publicUrl = process.env.PUBLIC_URL || "/deployRepository";
+  console.log("product_url:", gift.product_url);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -139,7 +140,10 @@ function GiftNavigator() {
               />
 
               <a
-                href={gift.product_url}
+                href={new URL(
+                  gift.product_url,
+                  process.env.PUBLIC_URL
+                ).toString()}
                 target="_blank"
                 rel="noopener noreferrer"
               >

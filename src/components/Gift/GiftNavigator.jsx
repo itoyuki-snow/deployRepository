@@ -132,7 +132,10 @@ function GiftNavigator() {
               <p>￥{gift.price}</p>
               <img
                 className="item-image"
-                src={`${process.env.PUBLIC_URL}${gift.image_url}`}
+                src={`${process.env.PUBLIC_URL}/${gift.image_url.replace(
+                  /^\//,
+                  ""
+                )}`}
                 alt={gift.name}
               />
               <a

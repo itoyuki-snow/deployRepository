@@ -39,7 +39,7 @@ const CartPage = () => {
                 const imagePath = item.image_url.startsWith("/")
                   ? item.image_url.slice(1)
                   : item.image_url;
-                const imageURL = new URL(imagePath, baseURL).href;
+                const imageURL = `${process.env.PUBLIC_URL}/${imagePath}`;
 
                 return (
                   <div className="cart-item" key={item.id}>

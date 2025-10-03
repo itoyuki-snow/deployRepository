@@ -10,6 +10,7 @@ const CartPage = () => {
     useContext(CartContext);
 
   const navigate = useNavigate();
+  const baseURL = process.env.REACT_APP_API_BASE_URL;
 
   const shippingFee = 185;
   const subtotal = (cartItems || []).reduce(
@@ -34,38 +35,36 @@ const CartPage = () => {
             <p>カートに商品がありません</p>
           ) : (
             <div className="cart-items">
-              {cartItems.map((item, index) => (
-                <div className="cart-item" key={item.id}>
-                  <h2>{item.name}</h2>
+              {cartItems.map((item) => {
+                const imageURL = new URL(item.image_url, baseURL).href;
+                return (
+                  <div className="cart-item" key={item.id}>
+                    <h2>{item.name}</h2>
+                    <img
+                      className="item-image"
+                      src={imageURL}
+                      alt={item.name}
+                    />
+                    <p>{item.description}</p>
+                    <p>¥{item.price.toLocaleString()} (税込)</p>
 
-                  <img
-                    className="item-image"
-                    src={new URL(
-                      item.image_url,
-                      process.env.PUBLIC_URL
-                    ).toString()}
-                    alt={item.name}
-                  />
+                    <div className="quantity-controls">
+                      <p>数量: {item.quantity}</p>
+                      <button onClick={() => handleUpdateQuantity(item.id, -1)}>
+                        -
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => handleUpdateQuantity(item.id, 1)}>
+                        +
+                      </button>
+                    </div>
 
-                  <p>{item.description}</p>
-                  <p>¥{item.price.toLocaleString()} (税込)</p>
-
-                  <div className="quantity-controls">
-                    <p>数量: {item.quantity}</p>
-                    <button onClick={() => handleUpdateQuantity(item.id, -1)}>
-                      -
-                    </button>
-                    <span>{item.quantity}</span>
-                    <button onClick={() => handleUpdateQuantity(item.id, 1)}>
-                      +
+                    <button onClick={() => handleRemoveItem(item.id)}>
+                      削除
                     </button>
                   </div>
-
-                  <button onClick={() => handleRemoveItem(item.id)}>
-                    削除
-                  </button>
-                </div>
-              ))}
+                );
+              })}
               <div className="summary">
                 <p>小計: ¥{subtotal.toLocaleString()}</p>
                 <p>送料: ¥{shippingFee}</p>

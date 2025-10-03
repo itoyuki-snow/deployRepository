@@ -36,7 +36,11 @@ const CartPage = () => {
           ) : (
             <div className="cart-items">
               {cartItems.map((item) => {
-                const imageURL = new URL(item.image_url, baseURL).href;
+                const imagePath = item.image_url.startsWith("/")
+                  ? item.image_url.slice(1)
+                  : item.image_url;
+                const imageURL = new URL(imagePath, baseURL).href;
+
                 return (
                   <div className="cart-item" key={item.id}>
                     <h2>{item.name}</h2>

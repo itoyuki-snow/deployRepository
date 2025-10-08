@@ -156,33 +156,39 @@ export default function OrderCheckout() {
           <section>
             <h3>ご注文内容</h3>
             <div className="total-items">
-              {cart.map((item, index) => (
-                <div className="cart-item" key={`${item.id}-${index}`}>
-                  <h2>{item.name}</h2>
-                  <img
-                    className="item-image"
-                    src={new URL(
-                      item.image_url,
-                      process.env.PUBLIC_URL
-                    ).toString()}
-                    alt={item.name}
-                  />
+              {cart.map((item, index) => {
+                const rawPath =
+                  item.image_url && item.image_url.trim() !== ""
+                    ? item.image_url
+                    : "images/default.jpg";
+                const imagePath = rawPath.replace(/^\/+/, "");
+                const imageURL = `${process.env.PUBLIC_URL}/${imagePath}`;
 
-                  <p>¥{item.price.toLocaleString()}</p>
+                return (
+                  <div className="cart-item" key={`${item.id}-${index}`}>
+                    <h2>{item.name}</h2>
+                    <img
+                      className="item-image"
+                      src={imageURL}
+                      alt={item.name}
+                    />
 
-                  <div className="quantity-controls">
-                    <p>数量: {item.quantity}</p>
-                    <button onClick={() => onUpdateQuantity(item.id, -1)}>
-                      -
-                    </button>
-                    <span>{item.quantity}</span>
-                    <button onClick={() => onUpdateQuantity(item.id, 1)}>
-                      +
-                    </button>
+                    <p>¥{item.price.toLocaleString()}</p>
+
+                    <div className="quantity-controls">
+                      <p>数量: {item.quantity}</p>
+                      <button onClick={() => onUpdateQuantity(item.id, -1)}>
+                        -
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => onUpdateQuantity(item.id, 1)}>
+                        +
+                      </button>
+                    </div>
+                    <button onClick={() => onRemoveItem(item.id)}>削除</button>
                   </div>
-                  <button onClick={() => onRemoveItem(item.id)}>削除</button>
-                </div>
-              ))}
+                );
+              })}
               <div className="summary">
                 <p>小計: ¥{subtotal.toLocaleString()}</p>
                 <p>送料: ¥{shippingFee}</p>

@@ -130,29 +130,38 @@ function GiftNavigator() {
           <h3>
             {form.recipient_name || "贈る相手"} さんへのおすすめはこちら！
           </h3>
-          {gifts.map((gift) => (
-            <div key={gift.id} className="gift-card">
-              <h4>『{gift.name}』</h4>
-              <p>{gift.description}</p>
-              <p>￥{gift.price}</p>
-              <img
-                className="item-image"
-                src={new URL(gift.image_url, baseUrl).toString()}
-                alt={gift.name}
-              />
 
-              <a
-                href={new URL(
-                  gift.product_url,
-                  process.env.PUBLIC_URL
-                ).toString()}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                商品を見る
-              </a>
-            </div>
-          ))}
+          {gifts.map((gift) => {
+            if (!gift.image_url || typeof gift.image_url !== "string")
+              return null;
+
+            const imagePath = gift.image_url.startsWith("/")
+              ? gift.image_url.slice(1)
+              : gift.image_url;
+
+            const imageURL = `${process.env.PUBLIC_URL}/${imagePath}`;
+
+            return (
+              <div key={gift.id} className="gift-card">
+                <h4>『{gift.name}』</h4>
+                <p>{gift.description}</p>
+                <p>￥{gift.price}</p>
+
+                <img className="item-image" src={imageURL} alt={gift.name} />
+
+                <a
+                  href={new URL(
+                    gift.product_url,
+                    process.env.PUBLIC_URL
+                  ).toString()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  商品を見る
+                </a>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

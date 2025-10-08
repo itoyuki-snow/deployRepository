@@ -132,9 +132,9 @@ function GiftNavigator() {
           </h3>
 
           {gifts.map((gift) => {
-            const productURL = gift.product_url.startsWith("/")
+            const productURL = gift.product_url.startsWith("http")
               ? gift.product_url
-              : `${process.env.PUBLIC_URL}/${gift.product_url.replace(
+              : `${process.env.PUBLIC_URL}/#${gift.product_url.replace(
                   /^\/+/,
                   ""
                 )}`;

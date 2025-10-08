@@ -161,8 +161,12 @@ export default function OrderCheckout() {
                   item.image_url && item.image_url.trim() !== ""
                     ? item.image_url
                     : "images/default.jpg";
-                const imagePath = rawPath.replace(/^\/+/, "");
-                const imageURL = `${process.env.PUBLIC_URL}/${imagePath}`;
+
+                const imageURL = rawPath.startsWith("http")
+                  ? rawPath
+                  : `${process.env.PUBLIC_URL}/${rawPath.replace(/^\/+/, "")}`;
+
+                console.log("image_url:", item.image_url);
 
                 return (
                   <div className="cart-item" key={`${item.id}-${index}`}>

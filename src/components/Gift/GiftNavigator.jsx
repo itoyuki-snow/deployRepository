@@ -132,6 +132,13 @@ function GiftNavigator() {
           </h3>
 
           {gifts.map((gift) => {
+            const productURL = gift.product_url.startsWith("/")
+              ? gift.product_url
+              : `${process.env.PUBLIC_URL}/${gift.product_url.replace(
+                  /^\/+/,
+                  ""
+                )}`;
+
             if (!gift.image_url || typeof gift.image_url !== "string")
               return null;
 
@@ -149,14 +156,7 @@ function GiftNavigator() {
 
                 <img className="item-image" src={imageURL} alt={gift.name} />
 
-                <a
-                  href={new URL(
-                    gift.product_url,
-                    process.env.PUBLIC_URL
-                  ).toString()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={productURL} target="_blank" rel="noopener noreferrer">
                   商品を見る
                 </a>
               </div>

@@ -157,25 +157,28 @@ export default function OrderCheckout() {
             <h3>ご注文内容</h3>
             <div className="total-items">
               {cart.map((item, index) => {
-                const rawPath =
-                  item.image_url && item.image_url.trim() !== ""
+                const imageURL =
+                  item.image_url && item.image_url.trim().startsWith("http")
                     ? item.image_url
-                    : "images/default.jpg";
-
-                const imageURL = rawPath.startsWith("http")
-                  ? rawPath
-                  : `${process.env.PUBLIC_URL}/${rawPath.replace(/^\/+/, "")}`;
+                    : item.image_url && item.image_url.trim() !== ""
+                    ? `${process.env.PUBLIC_URL}/${item.image_url.replace(
+                        /^\/+/,
+                        ""
+                      )}`
+                    : null;
 
                 console.log("image_url:", item.image_url);
 
                 return (
                   <div className="cart-item" key={`${item.id}-${index}`}>
                     <h2>{item.name}</h2>
-                    <img
-                      className="item-image"
-                      src={imageURL}
-                      alt={item.name}
-                    />
+                    {imageURL && (
+                      <img
+                        className="item-image"
+                        src={imageURL}
+                        alt={item.name}
+                      />
+                    )}
 
                     <p>¥{item.price.toLocaleString()}</p>
 
